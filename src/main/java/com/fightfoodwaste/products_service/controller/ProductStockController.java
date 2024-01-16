@@ -17,7 +17,7 @@ public class ProductStockController {
 
     private final ProductStockService service;
 
-    @PostMapping
+    @PostMapping("/set")
     public ResponseEntity setQuantity(@RequestBody SetQuantityRequest request){
         try{
             Boolean success = service.setQuantity(request);
