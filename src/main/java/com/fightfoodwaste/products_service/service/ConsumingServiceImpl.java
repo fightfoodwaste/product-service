@@ -31,6 +31,7 @@ public class ConsumingServiceImpl implements ConsumingService{
     @Override
     public void consumeVerifyStock(com.fightfoodwaste.products_service.dto.VerifyStockMessage payload){
         StockVerifiedMessage responseMessage = new StockVerifiedMessage(payload.getOrder_id(), false);
+        System.out.println("Received stock verification for order #"+ payload.getOrder_id());
         try{
             ProductStockGetResponse response = productStockService.getProductStock(payload.getProduct_id());
             int currentQuantity = response.getQuantity();

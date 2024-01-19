@@ -16,6 +16,7 @@ public class PublishingServiceImpl implements PublishingService{
 
     @Override
     public void publishStockVerified(StockVerifiedMessage payload) {
+        System.out.println("Stock verification complete for order #"+ payload.getOrder_id());
         rabbitTemplate.convertAndSend(MessagingConfig.VERIFY_STOCK_EXCHANGE_NAME, MessagingConfig.STOCK_VERIFIED_ROUTING_KEY, payload);
     }
 }
